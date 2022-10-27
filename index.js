@@ -9,9 +9,7 @@ const URL = "http://127.0.0.1:5173";
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-// const session = require("express-session");
 
-// const jwt = require("jsonwebtoken");
 const e = require("express");
 
 const app = express();
