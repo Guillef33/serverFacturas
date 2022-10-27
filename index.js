@@ -37,13 +37,13 @@ app.use(
 //   })
 // );
 
-// MySQL
-// const connection = mysql.createConnection({
-//   host: "127.0.0.1",
-//   user: "root",
-//   password: "",
-//   database: "facturaChallenge",
-// });
+MySQL;
+const connection = mysql.createConnection({
+  host: "https://server.arrancar.com.ar/",
+  user: "arrancarcom_server",
+  password: "servidorFacturas",
+  database: "arrancarcom_server",
+});
 
 //Route
 app.get("/", (req, res) => {
