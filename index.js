@@ -3,7 +3,6 @@ const cors = require("cors");
 require("dotenv").config();
 const mysql = require("mysql");
 const PORT = process.env.PORT || 3050;
-const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const URL = "http://127.0.0.1:5173";
 
