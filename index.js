@@ -1,5 +1,6 @@
 const express = require("express");
-app.use(express.static("public"));
+const app = express();
+
 const cors = require("cors");
 require("dotenv").config();
 const mysql = require("mysql");
@@ -10,9 +11,7 @@ const URL = "http://127.0.0.1:5173";
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
-const e = require("express");
-
-const app = express();
+app.use(express.static("public"));
 
 // app.use(bodyParser.json());
 app.use(express.json());
