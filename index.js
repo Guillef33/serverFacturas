@@ -60,23 +60,23 @@ app.get("/facturas/:id", (req, res) => {
   res.send("Get facturas por id");
 });
 
-// app.post("/agregar-factura", (req, res) => {
-//   res.send("We are here");
-//   const concepto = req.body.concepto;
-//   const monto = req.body.monto;
-//   const fecha = req.body.fecha;
-//   const tipo = req.body.tipo;
-//   const categoria = req.body.categoria;
-//   console.log(concepto, monto, fecha, tipo, categoria);
+app.post("/agregar-factura", (req, res) => {
+  res.send("We are here");
+  const concepto = req.body.concepto;
+  const monto = req.body.monto;
+  const fecha = req.body.fecha;
+  const tipo = req.body.tipo;
+  const categoria = req.body.categoria;
+  console.log(concepto, monto, fecha, tipo, categoria);
 
-//   connection.query(
-//     "INSERT INTO facturas (concepto, monto, fecha, tipo, categoria) VALUES (?,?,?,?,?)",
-//     [concepto, monto, fecha, tipo, categoria],
-//     (err, result) => {
-//       console.log(err);
-//     }
-//   );
-// });
+  connection.query(
+    "INSERT INTO facturas (concepto, monto, fecha, tipo, categoria) VALUES (?,?,?,?,?)",
+    [concepto, monto, fecha, tipo, categoria],
+    (err, result) => {
+      console.log(err);
+    }
+  );
+});
 
 // Todos los turnos, mostrar los ultimos 10 turnos
 // app.get("/facturas", (req, res) => {
