@@ -60,117 +60,117 @@ app.get("/facturas/:id", (req, res) => {
   res.send("Get facturas por id");
 });
 
-app.post("/agregar-factura", (req, res) => {
-  res.send("We are here");
-  const concepto = req.body.concepto;
-  const monto = req.body.monto;
-  const fecha = req.body.fecha;
-  const tipo = req.body.tipo;
-  const categoria = req.body.categoria;
-  console.log(concepto, monto, fecha, tipo, categoria);
+// app.post("/agregar-factura", (req, res) => {
+//   res.send("We are here");
+//   const concepto = req.body.concepto;
+//   const monto = req.body.monto;
+//   const fecha = req.body.fecha;
+//   const tipo = req.body.tipo;
+//   const categoria = req.body.categoria;
+//   console.log(concepto, monto, fecha, tipo, categoria);
 
-  connection.query(
-    "INSERT INTO facturas (concepto, monto, fecha, tipo, categoria) VALUES (?,?,?,?,?)",
-    [concepto, monto, fecha, tipo, categoria],
-    (err, result) => {
-      console.log(err);
-    }
-  );
-});
+//   connection.query(
+//     "INSERT INTO facturas (concepto, monto, fecha, tipo, categoria) VALUES (?,?,?,?,?)",
+//     [concepto, monto, fecha, tipo, categoria],
+//     (err, result) => {
+//       console.log(err);
+//     }
+//   );
+// });
 
 // Todos los turnos, mostrar los ultimos 10 turnos
-app.get("/facturas", (req, res) => {
-  connection.query(
-    "SELECT * FROM facturas ORDER BY fecha desc LIMIT 10",
-    (error, result) => {
-      if (error) {
-        console.log(error);
-      } else {
-        res.send(result);
-      }
-    }
-  );
-});
+// app.get("/facturas", (req, res) => {
+//   connection.query(
+//     "SELECT * FROM facturas ORDER BY fecha desc LIMIT 10",
+//     (error, result) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         res.send(result);
+//       }
+//     }
+//   );
+// });
 
 app.get("/facturas/:id", (req, res) => {
   res.send("Get facturas by id");
 });
 
-app.put("/update/:id", (req, res) => {
-  const concepto = req.body.concepto;
-  const monto = req.body.monto;
-  const fecha = req.body.fecha;
-  const tipo = req.body.tipo;
-  const categoria = req.body.categoria;
-  const id = req.params.id;
+// app.put("/update/:id", (req, res) => {
+//   const concepto = req.body.concepto;
+//   const monto = req.body.monto;
+//   const fecha = req.body.fecha;
+//   const tipo = req.body.tipo;
+//   const categoria = req.body.categoria;
+//   const id = req.params.id;
 
-  console.log(id, concepto, monto, fecha, tipo, categoria);
+//   console.log(id, concepto, monto, fecha, tipo, categoria);
 
-  connection.query(
-    `UPDATE facturas SET concepto = "${concepto}", monto = ${monto}, fecha = "${fecha}", tipo = "${tipo}", categoria = "${categoria}"  WHERE id = ${id}`,
-    (error, result) => {
-      if (error) {
-        console.log(error);
-        res.send({ error: error });
-      } else {
-        res.send(result);
-      }
-    }
-  );
-});
+//   connection.query(
+//     `UPDATE facturas SET concepto = "${concepto}", monto = ${monto}, fecha = "${fecha}", tipo = "${tipo}", categoria = "${categoria}"  WHERE id = ${id}`,
+//     (error, result) => {
+//       if (error) {
+//         console.log(error);
+//         res.send({ error: error });
+//       } else {
+//         res.send(result);
+//       }
+//     }
+//   );
+// });
 
-app.delete("/delete/:id", (req, res) => {
-  const id = req.params.id;
-  connection.query(`DELETE FROM facturas WHERE id = ${id}`, (error, result) => {
-    if (error) {
-      console.log(error);
-    } else {
-      res.send(result);
-    }
-  });
-});
+// app.delete("/delete/:id", (req, res) => {
+//   const id = req.params.id;
+//   connection.query(`DELETE FROM facturas WHERE id = ${id}`, (error, result) => {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       res.send(result);
+//     }
+//   });
+// });
 
-// Edit va con update, pasar el id y ver si se envia a AgregarFactura con los valores completados o bien en un modal
+// // Edit va con update, pasar el id y ver si se envia a AgregarFactura con los valores completados o bien en un modal
 
-app.get("/facturas-ingresos", (req, res) => {
-  connection.query(
-    "SELECT * FROM facturas WHERE tipo = 'ingreso'",
-    (error, result) => {
-      if (error) {
-        console.log(error);
-      } else {
-        res.send(result);
-      }
-    }
-  );
-});
+// app.get("/facturas-ingresos", (req, res) => {
+//   connection.query(
+//     "SELECT * FROM facturas WHERE tipo = 'ingreso'",
+//     (error, result) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         res.send(result);
+//       }
+//     }
+//   );
+// });
 
-app.get("/facturas-egresos", (req, res) => {
-  connection.query(
-    "SELECT * FROM facturas WHERE tipo = 'egreso'",
-    (error, result) => {
-      if (error) {
-        console.log(error);
-      } else {
-        res.send(result);
-      }
-    }
-  );
-});
+// app.get("/facturas-egresos", (req, res) => {
+//   connection.query(
+//     "SELECT * FROM facturas WHERE tipo = 'egreso'",
+//     (error, result) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         res.send(result);
+//       }
+//     }
+//   );
+// });
 
-app.get("/categoria-hogar", (req, res) => {
-  connection.query(
-    "SELECT * FROM facturas WHERE categoria = 'comida'",
-    (error, result) => {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log(result);
-        res.send(result);
-      }
-    }
-  );
-});
+// app.get("/categoria-hogar", (req, res) => {
+//   connection.query(
+//     "SELECT * FROM facturas WHERE categoria = 'comida'",
+//     (error, result) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         console.log(result);
+//         res.send(result);
+//       }
+//     }
+//   );
+// });
 
 // Crud
 // All Users
@@ -192,70 +192,70 @@ app.get("/login", (req, res) => {
   }
 });
 
-app.post("/login", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  console.log(email, password);
+// app.post("/login", (req, res) => {
+//   const email = req.body.email;
+//   const password = req.body.password;
+//   console.log(email, password);
 
-  connection.query(
-    `SELECT * FROM usuarios WHERE email = "${email}" AND password = "${password}"`,
-    (error, result) => {
-      if (error) {
-        res.send({ error: error });
-      }
+//   connection.query(
+//     `SELECT * FROM usuarios WHERE email = "${email}" AND password = "${password}"`,
+//     (error, result) => {
+//       if (error) {
+//         res.send({ error: error });
+//       }
 
-      if (result.length > 0) {
-        res.send(result);
-      } else {
-        res.send({ message: "Wrong username/password combination" });
-      }
-    }
-  );
-});
+//       if (result.length > 0) {
+//         res.send(result);
+//       } else {
+//         res.send({ message: "Wrong username/password combination" });
+//       }
+//     }
+//   );
+// });
 
-app.post("/register", (req, res) => {
-  // res.send("We are here");
-  const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.email;
-  connection.query(
-    "INSERT INTO usuarios (username, email, password) VALUES (?,?,?)",
-    [username, email, password],
-    (err, result) => {
-      console.log(err);
-      res.send(result);
-    }
-  );
-});
+// app.post("/register", (req, res) => {
+//   // res.send("We are here");
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   const email = req.body.email;
+//   connection.query(
+//     "INSERT INTO usuarios (username, email, password) VALUES (?,?,?)",
+//     [username, email, password],
+//     (err, result) => {
+//       console.log(err);
+//       res.send(result);
+//     }
+//   );
+// });
 
-app.put("/update-users/:id", (req, res) => {
-  const nombreCompleto = req.body.nombreCompleto;
-  const empresa = req.body.empresa;
-  const cargo = req.body.cargo;
-  const edad = req.body.edad;
-  const genero = req.body.genero;
-  const id = req.params.id;
+// app.put("/update-users/:id", (req, res) => {
+//   const nombreCompleto = req.body.nombreCompleto;
+//   const empresa = req.body.empresa;
+//   const cargo = req.body.cargo;
+//   const edad = req.body.edad;
+//   const genero = req.body.genero;
+//   const id = req.params.id;
 
-  console.log(id, concepto, monto, fecha, tipo, categoria);
+//   console.log(id, concepto, monto, fecha, tipo, categoria);
 
-  connection.query(
-    `UPDATE facturas SET nombreCompleto = "${nombreCompleto}", empresa = ${empresa}, cargo = "${cargo}", edad = "${edad}", genero = "${genero}"  WHERE id = ${id}`,
-    (error, result) => {
-      if (error) {
-        console.log(error);
-        res.send({ error: error });
-      } else {
-        res.send(result);
-      }
-    }
-  );
-});
+//   connection.query(
+//     `UPDATE facturas SET nombreCompleto = "${nombreCompleto}", empresa = ${empresa}, cargo = "${cargo}", edad = "${edad}", genero = "${genero}"  WHERE id = ${id}`,
+//     (error, result) => {
+//       if (error) {
+//         console.log(error);
+//         res.send({ error: error });
+//       } else {
+//         res.send(result);
+//       }
+//     }
+//   );
+// });
 
 // Check Connect
-connection.connect((error) => {
-  if (error) throw error;
-  console.log("Database server running!");
-});
+// connection.connect((error) => {
+//   if (error) throw error;
+//   console.log("Database server running!");
+// });
 
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}`);
