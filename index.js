@@ -1,6 +1,7 @@
 const express = require("express");
-const mysql = require("mysql");
 const cors = require("cors");
+require("dotenv").config();
+const mysql = require("mysql");
 const PORT = process.env.PORT || 3050;
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
@@ -18,24 +19,7 @@ const app = express();
 // app.use(bodyParser.json());
 app.use(express.json());
 // Conexion backend to frontend
-app.use(
-  cors({
-    origin: ["http://127.0.0.1:5173", "http://localhost:3050"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", URL);
-//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
+app.use(cors());
 
 app.use(cookieParser());
 app.use(
@@ -110,7 +94,6 @@ app.get("/facturas", (req, res) => {
     }
   );
 });
-
 
 app.get("/facturas/:id", (req, res) => {
   res.send("Get facturas by id");
