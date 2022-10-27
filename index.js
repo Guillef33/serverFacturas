@@ -77,19 +77,19 @@ app.post("/agregar-factura", (req, res) => {
   );
 });
 
-// Todos los turnos, mostrar los ultimos 10 turnos
-// app.get("/facturas", (req, res) => {
-//   connection.query(
-//     "SELECT * FROM facturas ORDER BY fecha desc LIMIT 10",
-//     (error, result) => {
-//       if (error) {
-//         console.log(error);
-//       } else {
-//         res.send(result);
-//       }
-//     }
-//   );
-// });
+Todos los turnos, mostrar los ultimos 10 turnos
+app.get("/facturas", (req, res) => {
+  connection.query(
+    "SELECT * FROM facturas ORDER BY fecha desc LIMIT 10",
+    (error, result) => {
+      if (error) {
+        console.log(error);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
 
 app.get("/facturas/:id", (req, res) => {
   res.send("Get facturas by id");
