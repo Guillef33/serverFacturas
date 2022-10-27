@@ -41,12 +41,12 @@ app.use(
 );
 
 // MySQL
-const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "",
-  database: "facturaChallenge",
-});
+// const connection = mysql.createConnection({
+//   host: "127.0.0.1",
+//   user: "root",
+//   password: "",
+//   database: "facturaChallenge",
+// });
 
 //Route
 app.get("/", (req, res) => {
