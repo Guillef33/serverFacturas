@@ -1,4 +1,5 @@
 const express = require("express");
+app.use(express.static("public"));
 const cors = require("cors");
 require("dotenv").config();
 const mysql = require("mysql");
@@ -8,9 +9,9 @@ const URL = "http://127.0.0.1:5173";
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
+// const session = require("express-session");
 
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const e = require("express");
 
 const app = express();
@@ -27,17 +28,17 @@ app.use(
   })
 );
 
-app.use(
-  session({
-    key: "userId",
-    secret: "subscribe",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      expires: 60 * 60 * 24,
-    },
-  })
-);
+// app.use(
+//   session({
+//     key: "userId",
+//     secret: "subscribe",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       expires: 60 * 60 * 24,
+//     },
+//   })
+// );
 
 // MySQL
 // const connection = mysql.createConnection({
