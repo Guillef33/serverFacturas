@@ -37,7 +37,6 @@ app.use(
 //   })
 // );
 
-MySQL;
 const connection = mysql.createConnection({
   host: "https://server.arrancar.com.ar/",
   user: "arrancarcom_server",
